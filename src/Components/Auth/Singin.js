@@ -1,47 +1,52 @@
 import React, { Component } from 'react'
 
 class Singin extends Component {
+    state ={
+        email : '' ,
+        password :''
+
+    }
+    handleonChange=(e)=>{
+        this.setState({
+            [e.target.id]:e.target.value
+        })
+
+    }
+    handleonSubmit=(e)=>{
+        e.preventDefault()
+        console.log(this.state)
+        
+
+    }
     render() {
         return (
-            <div className = "container">
-            <h1 className="grey-text text-darken-4 center">Sing In</h1>
-            
+            <div className="container">
+           
+                <h1 className="grey-text text-darken-4 center">Sing In</h1>
                 <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                    <div class="input-field col s6">
-                        <input placeholder="Placeholder" id="first_name" type="text" class="validate"/>
-                        <label for="first_name">First Name</label>
+                <form  class="col s12" onSubmit = {this.handleonSubmit}>
+                <div class="row">
+                    <div class="input-field col s12 ">
+                    <input id="email" type="email" class="validate"  onChange= {this.handleonChange}/>
+                    <label for="email">Email</label>
                     </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate" />
-                        <label for="last_name">Last Name</label>
-                    </div>
-                    </div>
-                    
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate" />
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 ">
+                        <input id="password" type="password" class="validate"  onChange= {this.handleonChange} />
                         <label for="password">Password</label>
                     </div>
-                    </div>
-                    <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" />
-                        <label for="email">Email</label>
-                    </div>
-                    </div>
-                    
-                </form>
                 </div>
-                </div>
-                    
-                
-                
-              
-          
+                <button className="btn black right" >Sing in</button>
+           
+            </form>
+            </div>
+            </div>
+            
+
         )
-}
+            
+    }
 }
 
 export default Singin ; 
