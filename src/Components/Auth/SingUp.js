@@ -34,30 +34,30 @@ import React, { Component } from 'react'
                     <div className="row">
                     <div className="input-field col s6">
                         <input  id="first_name" type="text" className="validate" onChange= {this.handleonChange} />
-                        <label for="first_name">First Name</label>
+                        <label htmlFor="first_name">First Name</label>
                     </div>
                     <div className="input-field col s6">
                         <input id="last_name" type="text" className="validate"  onChange= {this.handleonChange}/>
-                        <label for="last_name">Last Name</label>
+                        <label htmlFor="last_name">Last Name</label>
                     </div>
                     </div>
                     
                     <div className="row">
                     <div className="input-field col s12">
                         <input id="password" type="password" className="validate"  onChange= {this.handleonChange}/>
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                     </div>
                     </div>
                     <div className="row">
                     <div className="input-field col s12">
                         <input id="confirm_password" type="password" className="validate"  onChange= {this.handleonChange}/>
-                        <label for="confirm_password">Confirm Password</label>
+                        <label htmlFor="confirm_password">Confirm Password</label>
                     </div>
                     </div>
                     <div className="row">
                     <div className="input-field col s12">
                         <input id="email" type="email" className="validate"  onChange= {this.handleonChange}/>
-                        <label for="email">Email</label>
+                        <label htmlFor="email">Email</label>
                     </div>
                     </div>
                     <button className="btn black right" >Sing Up</button>
