@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
  class SingUp extends Component {
     state ={
@@ -74,4 +74,4 @@ import React, { Component } from 'react'
     }
 }
 
-export default SingUp
+export default SingUp;

@@ -8,7 +8,7 @@ const ProjectList=({Projects})=>{
         {/*Lets type some JSX*/}
         {Projects && Projects.map(project => {
             return (
-                <ProjectSummary project = {project} key = {project.id}/> // passinf properties  
+                <ProjectSummary project = {project} key = {project.id}/> // passing  properties  
                 )
 
 
@@ -21,4 +21,4 @@ const ProjectList=({Projects})=>{
     )
 }
 
-export default ProjectList
+export default ProjectList;

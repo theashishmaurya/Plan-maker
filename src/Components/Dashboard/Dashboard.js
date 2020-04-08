@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import ProjectList from '../Projects/ProjectList';
 import Notification from './Notification';
@@ -6,13 +5,13 @@ import {connect} from 'react-redux';
 
 class Dashboard extends Component{
     render(){
-        const {Projects} = this.props  // destructuring of the Projects here. We have pass down all the property of our state to the props.
+        const {DashProjects} = this.props  // destructuring of the Projects here. We have pass down all the property of our state to the props.
         //Read more about destructuring at : https://www.freecodecamp.org/news/the-basics-of-destructuring-props-in-react-a196696f5477/
         return(
             <div className="container dashboard">
                 <div className="row">
                     <div className="col s12 m6">
-                    <ProjectList Projects = {Projects}/> {/* here Project is passed as a property now we can access it in ProjectList and also the ProjectReducers state :D */}
+                    <ProjectList Projects = {DashProjects}/> {/* here Project is passed as a property now we can access it in ProjectList and also the ProjectReducers state :D */}
 
                     </div>
                  
@@ -33,7 +32,7 @@ const mapStatetoProps=(state)=>{
     // connect => RootReducer => project => ProjectReducer => posts
     // thats how we can access it
     return{
-    Projects : state.project.posts     // Here we are making a property(props) named Projects which we will be passing Project summary
+    DashProjects : state.project.posts     // Here we are making a property(props) named Projects which we will be passing Project summary
     
     }
 }

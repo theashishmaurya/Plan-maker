@@ -8,7 +8,8 @@ class CreatePost extends Component {
     }
     handleonChange=(e)=>{
         this.setState({
-            [e.target.id]:e.target.value
+            [e.target.id]:e.target.value // while id and objects in state are same so we  just set the value of text area with 
+            // some id to the same spelled id of the state
         })
 
     }
