@@ -3,7 +3,7 @@ import ProjectReducer from './ProjectReducer'
 import {combineReducers} from 'redux'
 
 const RootReducer = combineReducers( {
-    auth : AuthReducer,
+    auth    : AuthReducer,
     project : ProjectReducer
 });
 
