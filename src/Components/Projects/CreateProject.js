@@ -17,8 +17,13 @@ class CreatePost extends Component {
     }
     handleonSubmit=(e)=>{
         e.preventDefault()
-        console.log(this.state)
+        //console.log(this.state)
         this.props.createproject(this.state) // passing the state of the project to the action .
+        this.setState({
+            input_text : '' ,
+            textarea2 :''
+            
+        })
         
 
     }
@@ -31,13 +36,13 @@ class CreatePost extends Component {
                 <form  className="col s12" onSubmit = {this.handleonSubmit}>
                 <div className="row">
                     <div className="input-field col s6 ">
-                    <input id="input_text" type="text" data-length="10"  onChange= {this.handleonChange} />
+                    <input id="input_text" type="text" data-length="10"  onChange= {this.handleonChange} value = {this.state.input_text} />
                     <label htmlFor="input_text">Title</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12 ">
-                    <textarea id="textarea2" className="materialize-textarea" onChange= {this.handleonChange}></textarea>
+                    <textarea id="textarea2" className="materialize-textarea" onChange= {this.handleonChange} value = {this.state.textarea2}></textarea>
                     <label htmlFor="textarea2">Write post .....</label>
                     </div>
                 </div>
