@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import createProject from '../../store/actions/projectAction';
+import {connect} from 'react-redux';
 
 class CreatePost extends Component {
     state ={
@@ -16,6 +18,7 @@ class CreatePost extends Component {
     handleonSubmit=(e)=>{
         e.preventDefault()
         console.log(this.state)
+        this.props.createproject(this.state)
         
 
     }
@@ -49,5 +52,15 @@ class CreatePost extends Component {
             
     }
 }
+const mapDispatchtoProps=dispatch=>{
+    // we will be returning an
+    return{
+        createproject : (project)=>dispatch(createProject(project))// here we created an object and object contain a function and in that function a 
+        // parameter project is passed that function is also defined as a dispatch function which takes createProject action and passes the project to the action.
 
-export default CreatePost ; 
+    }
+
+}
+
+export default connect(null,mapDispatchtoProps)(CreatePost) ;  // as connect takes two parameter first is mapStatetoProps and second is mapDispatchtoProps
+                                                               //thats why the first function is passsed is null as we doesnt have any mapStatetoProps
