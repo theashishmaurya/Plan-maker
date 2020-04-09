@@ -18,7 +18,7 @@ class CreatePost extends Component {
     handleonSubmit=(e)=>{
         e.preventDefault()
         console.log(this.state)
-        this.props.createproject(this.state)
+        this.props.createproject(this.state) // passing the state of the project to the action .
         
 
     }
