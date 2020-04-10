@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 
 class CreatePost extends Component {
     state ={
-        input_text : '' ,
-        textarea2 :''
+        title : '' ,
+        content :''
 
     }
     handleonChange=(e)=>{
@@ -20,8 +20,8 @@ class CreatePost extends Component {
         //console.log(this.state)
         this.props.createproject(this.state) // passing the state of the project to the action .
         this.setState({
-            input_text : '' ,
-            textarea2 :''
+            title : '' ,
+            content :''
             
         })
         
@@ -36,13 +36,13 @@ class CreatePost extends Component {
                 <form  className="col s12" onSubmit = {this.handleonSubmit}>
                 <div className="row">
                     <div className="input-field col s6 ">
-                    <input id="input_text" type="text" data-length="10"  onChange= {this.handleonChange} value = {this.state.input_text} />
+                    <input id="title" type="text" data-length="10"  onChange= {this.handleonChange} value = {this.state.title} />
                     <label htmlFor="input_text">Title</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12 ">
-                    <textarea id="textarea2" className="materialize-textarea" onChange= {this.handleonChange} value = {this.state.textarea2}></textarea>
+                    <textarea id="content" className="materialize-textarea" onChange= {this.handleonChange} value = {this.state.content}></textarea>
                     <label htmlFor="textarea2">Write post .....</label>
                     </div>
                 </div>

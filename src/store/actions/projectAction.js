@@ -9,7 +9,7 @@ const createProject = (recievedProject) =>{
     return(dispatch ,getState,{getFirestore})=>{
         //lets create a variable and store our function on that for ease
         const firestore = getFirestore() ;
-        //we are adding data to our firebase database
+        //we are adding data to our firebase database that we have created from create project
         firestore.collection('projects').add({
             //using .spreader     
             ...recievedProject,

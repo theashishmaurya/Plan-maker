@@ -1,4 +1,6 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {firestorConnect} from 'react-redux-firebase'
 
 const ProjectDetails=(props) =>{
     let id = props.match.params.post_id;
