@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import ProjectList from '../Projects/ProjectList';
 import Notification from './Notification';
 import {connect} from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import {compose} from 'redux' ;
+
 
 class Dashboard extends Component{
     render(){
@@ -31,9 +34,15 @@ const mapStatetoProps=(state)=>{
     //project then for accesing it we have to go through RootReduce 
     // connect => RootReducer => project => ProjectReducer => posts
     // thats how we can access it
+    //console.log(state);
     return{
-    DashProjects : state.project.posts     // Here we are making a property(props) named Projects which we will be passing Project summary
+    DashProjects : state.firestore.ordered.projects    // Here we are making a property(props) named Projects which we will be passing Project summary
     
     }
 }
-export default connect(mapStatetoProps)(Dashboard);
+export default compose(
+    connect(mapStatetoProps),
+    firestoreConnect ([
+        {collection : 'projects'}
+    ]))
+    (Dashboard);
