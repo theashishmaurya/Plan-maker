@@ -14,7 +14,7 @@ const createProject = (recievedProject) =>{
             //using .spreader     
             ...recievedProject,
             authorFirstName : 'Ashish',
-            authorsLastName : 'Maurya',
+            authorLastName : 'Maurya',
             authorID        : 12345,
             createdAt       : new Date()
         // after above async thing is  done then we dispatch this below function
