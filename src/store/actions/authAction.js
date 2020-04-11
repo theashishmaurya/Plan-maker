@@ -18,3 +18,4 @@ const singIn = (credential) =>{
     }
 
 }
+export default singIn
