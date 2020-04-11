@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
+import SingIn from  '../../store/actions/authAction'
+import {connect} from 'react-redux'
 
 class Singin extends Component {
     state ={
         email : '' ,
         password :''
 
-    }
+    } 
+    
+
     handleonChange=(e)=>{
         this.setState({
             [e.target.id]:e.target.value
@@ -14,11 +18,14 @@ class Singin extends Component {
     }
     handleonSubmit=(e)=>{
         e.preventDefault()
-        console.log(this.state)
+        //console.log(this.state)
+        //on submit we fire the action and in which we have given the action.
+        this.props.SingIn(this.state)
         
 
     }
     render() {
+        const {authError} = this.props
         return (
             <div className="container">
            
@@ -37,6 +44,11 @@ class Singin extends Component {
                         <label htmlFor="password">Password</label>
                     </div>
                 </div>
+                <div className="container center red-text">
+                
+                    {authError ? <p>{authError}</p>:null} {/* if we have error we display Autherror or else we wont */}
+
+                </div>
                 <button className="btn black right" >Sing in</button>
            
             </form>
@@ -48,5 +60,17 @@ class Singin extends Component {
             
     }
 }
+const mapStatetoProps=(state)=>{
+    return{
+        authError : state.auth.authError
 
-export default Singin ; 
+    }
+}
+// mapStatetoDispatch function to pass all the state to the action .
+const mapStatetoDispatch=(dispatch)=>{
+    return{
+        SingIn : (credential)=>(dispatch(SingIn(credential))) // dispatching an action called singIn when object singIn is called and in that we are passing credential
+    }
+}
+
+export default connect(mapStatetoProps, mapStatetoDispatch)(Singin) 
