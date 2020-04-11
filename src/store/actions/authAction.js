@@ -14,11 +14,27 @@ export const SingIn = (credential) =>{
                 type: 'LOGIN_SUCCESS'
             })
             }).catch((err)=>{
-                dispatch({type: 'LOGIN_ERROR'})
+                dispatch({type: 'LOGIN_ERROR' , err})
         })
 
 
     }
+
+}
+export const SingOut = () => {
+    return (dispatch , getState) => {
+        firebase.auth().signOut().then(()=>{
+            dispatch({
+                type: 'LOGED_OUT'
+            })
+        }).catch((err)=>{
+            dispatch ({
+                type :'LOGOUT_ERROR' ,err
+            })
+
+        }
+            
+        )}
 
 }
 
