@@ -10,6 +10,8 @@ class Navbar extends Component{
        
     }
     render(){
+        const {auth} = this.props
+        const link = auth.uid ? <SingedInLinks/> :<SingedOutLinks/>
     return(
         <nav className="nav-wrapper  grey darken-4">
           <div className="container">
@@ -18,8 +20,7 @@ class Navbar extends Component{
                 </Link>
               
                 <Link to = '/' className = "brand-logo">PlanMaker</Link>
-                <SingedInLinks/>
-                <SingedOutLinks/>
+                {link}
             </div>
         </nav>
     )
@@ -28,6 +29,7 @@ class Navbar extends Component{
 const mapStatetoProps=(state)=>{
     console.log(state)
     return{
+        auth : state.firebase.auth
 
     }
 }
