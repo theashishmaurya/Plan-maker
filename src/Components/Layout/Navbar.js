@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import SingedInLinks from './SingedInLinks';
 import SingedOutLinks from './SingedOutLinks';
+import {connect} from 'react-redux' ;
 
 class Navbar extends Component{
     handleonClick=()=>{
@@ -24,5 +25,10 @@ class Navbar extends Component{
     )
 }
 }
+const mapStatetoProps=(state)=>{
+    console.log(state)
+    return{
 
-export default Navbar
+    }
+}
+export default connect(mapStatetoProps)(Navbar)
