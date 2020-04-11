@@ -7,10 +7,13 @@ import {createStore , applyMiddleware, compose} from 'redux'
 import RootReducer from './store/reducers/RootReducer'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
-import {ReactReduxFirebase,getFirebase, ReactReduxFirebaseProvider} from 'react-redux-firebase'
+import {getFirebase, ReactReduxFirebaseProvider} from 'react-redux-firebase'
 import {createFirestoreInstance,reduxFirestore,getFirestore} from 'redux-firestore'
 import fbconfig from './config/fbconfig'
 import firebase from 'firebase/app'
+import { useSelector } from 'react-redux'
+import { isLoaded } from 'react-redux-firebase'
+
 //used a method called compose to compose all the enhancer/ Middleware we used here we used 3.
 //compose is something like combine we used in rootreducer to combine all the reducers
 const store = createStore(RootReducer,
@@ -28,11 +31,23 @@ const rrfProps = {
 };
 
 
+
+
+
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector(state => state.firebase.auth)
+  if (!isLoaded(auth)) return <div>splash screen...</div>;
+  return children
+}
+
 ReactDOM.render(
   <React.StrictMode>
   <Provider store = {store}>
   <ReactReduxFirebaseProvider{...rrfProps}>
+  <AuthIsLoaded>
     <App />
+  </AuthIsLoaded>
   </ReactReduxFirebaseProvider>
   </Provider>
     

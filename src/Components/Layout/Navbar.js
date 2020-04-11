@@ -11,7 +11,7 @@ class Navbar extends Component{
     }
     render(){
         const {auth} = this.props
-        const link = auth.uid ? <SingedInLinks/> :<SingedOutLinks/>
+        const link = auth.uid ? <SingedInLinks/> :<SingedOutLinks/> // ternerary operator to decide if the user is logedin or log out
     return(
         <nav className="nav-wrapper  grey darken-4">
           <div className="container">
