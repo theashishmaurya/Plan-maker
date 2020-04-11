@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import SingIn from  '../../store/actions/authAction'
-import {connect} from 'react-redux'
+import {SingIn} from  '../../store/actions/authAction';
+import {connect} from 'react-redux';
 
 class Singin extends Component {
     state ={
@@ -25,7 +25,7 @@ class Singin extends Component {
 
     }
     render() {
-        const {authError} = this.props
+        const {authError,authSuccess} = this.props
         return (
             <div className="container">
            
@@ -44,9 +44,9 @@ class Singin extends Component {
                         <label htmlFor="password">Password</label>
                     </div>
                 </div>
-                <div className="container center red-text">
+                <div className="container center ">
                 
-                    {authError ? <p>{authError}</p>:null} {/* if we have error we display Autherror or else we wont */}
+                    {authError ? <p className='red-text'>{authError}</p>:<p className = "green-text">{authSuccess}</p>} {/* if we have error we display Autherror or else we wont */}
 
                 </div>
                 <button className="btn black right" >Sing in</button>
@@ -62,7 +62,8 @@ class Singin extends Component {
 }
 const mapStatetoProps=(state)=>{
     return{
-        authError : state.auth.authError
+        authError : state.auth.authError,
+        authSuccess : state.auth.authSuccess
 
     }
 }

@@ -1,6 +1,6 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 
-const singIn = (credential) =>{
+export const SingIn = (credential) =>{
     return(dispatch , getState ) => {
         // setting firebase = getFirebase() so that we can use it 
        //const firebase = getFirebase();
@@ -21,4 +21,6 @@ const singIn = (credential) =>{
     }
 
 }
-export default singIn
+
+
+
