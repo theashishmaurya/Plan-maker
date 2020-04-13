@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import firestore from 'react-redux-firebase'
+
 import  { db } from '../../config/fbconfig';
 
 export const SingIn = (credential) =>{
@@ -42,9 +42,12 @@ export const SingOut = () => {
 
 export const singUp = (newUser) =>{
     return (dispatch , getState ,{getFirestore}) =>{
+        if(newUser.password !== newUser.confirm_password){
+            dispatch({type: "SINGUP_PASS_ERROR"})
+        }
         //const firestore = getFirestore();
+        else{
         firebase.auth().createUserWithEmailAndPassword(
-
             newUser.email,
             newUser.password
         ).then((resp)=>{
@@ -60,6 +63,7 @@ export const singUp = (newUser) =>{
             dispatch({type: 'SINGUP_ERROR' , err})
         })
     }
+} 
 }
 
 

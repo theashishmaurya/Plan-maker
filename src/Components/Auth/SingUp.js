@@ -23,13 +23,13 @@ import {connect} from 'react-redux'
     handleonSubmit=(e)=>{
         e.preventDefault()
         console.log(this.state)
-        // PassWord and confirm password validator 
-        const {password , confirm_password} = this.state
-        if (confirm_password !== password){
-            alert("Password doesn't match")
-        }
-        else {
-        this.props.singUp(this.state) }
+        // // PassWord and confirm password validator 
+        // // const {password , confirm_password} = this.state
+        // // if (confirm_password !== password){
+        // //     alert("Password doesn't match")
+        // }
+        // else {
+        this.props.singUp(this.state) 
         
     }
 

@@ -12,6 +12,9 @@ const ProjectDetails=(props) =>{
     return (
     
        <div className="container section project-details">
+       <div className="center">
+           <h1 className="center">Plan Details</h1>
+       </div>
            <div className="card">
                <div className="card-content">
                    <span className="card-title">{project.title}</span>

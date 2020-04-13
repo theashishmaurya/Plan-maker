@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Components/Parts/Header';
 import Footer from './Components/Parts/Footer';
 import Dashboard from './Components/Dashboard/Dashboard';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch } from 'react-router-dom'
 import ProjectDetails from './Components/Projects/ProjectDetails';
 import Singin from './Components/Auth/Singin';
 import SingUp from './Components/Auth/SingUp';
