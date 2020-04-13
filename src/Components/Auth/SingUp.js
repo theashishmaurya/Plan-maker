@@ -22,7 +22,7 @@ import {connect} from 'react-redux'
     }
     handleonSubmit=(e)=>{
         e.preventDefault()
-        console.log(this.state)
+        //console.log(this.state)
         // // PassWord and confirm password validator 
         // // const {password , confirm_password} = this.state
         // // if (confirm_password !== password){

@@ -17,7 +17,7 @@ const ProjectReducer = (state = initState  , action) => {
     switch(action.type){
         // case to handle the Add_Project dispatch
         case 'Add_Project' :
-            console.log('created project',action.newProject);
+           // console.log('created project',action.newProject);
             return state;
         // case to handle the Add_Project_Error
         case 'Add_Project_Error' :
