@@ -18,4 +18,7 @@ var firebaseConfig = {
 
   //firebase.firestore().settings() ;
 
+  const db = firebase.firestore();
+  export { db };
+
   export default firebase ;

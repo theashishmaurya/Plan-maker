@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {singUp} from '../../store/actions/authAction'
+import {connect} from 'react-redux'
 
  class SingUp extends Component {
     state ={
@@ -21,10 +23,13 @@ import React, { Component } from 'react';
     handleonSubmit=(e)=>{
         e.preventDefault()
         console.log(this.state)
+        this.props.singUp(this.state)
+        
     }
 
 
     render() {
+        const {authError} = this.props
         return (
             <div className = "container">
             <h1 className="grey-text text-darken-4 center">Sing Up</h1>
@@ -61,7 +66,9 @@ import React, { Component } from 'react';
                     </div>
                     </div>
                     <button className="btn black right" >Sing Up</button>
-                    
+                    <div className="center red-text">
+              { authError ? <p>{authError}</p> : null }
+            </div>
                 </form>
                 </div>
                 </div>
@@ -73,5 +80,16 @@ import React, { Component } from 'react';
         )
     }
 }
+const mapStatetoProps=(state)=>{
+    return{
+        authError : state.auth.authError}
+    
+}
+const mapDispatchtoProps =(dispatch)=>{
+    return{
+        singUp : (creds) => dispatch(singUp(creds))
+    }
+}
 
-export default SingUp;
+
+export default connect(mapStatetoProps,mapDispatchtoProps)(SingUp);
