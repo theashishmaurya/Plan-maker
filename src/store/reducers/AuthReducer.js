@@ -37,6 +37,12 @@ const AuthReducer = (state = initState  , action) => {
                 ...state ,
                 authError : action.err.message
             }
+        case 'SINGUP_PASS_ERROR' :
+            return{
+                ...state,
+                authError : "Password doesn't match"
+            }
+        
 
 
         
