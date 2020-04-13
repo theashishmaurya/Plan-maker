@@ -5,13 +5,13 @@ import 'firebase/firestore';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyBWO6GLscHrRw-TqFyAj-VMim9_wA96Vf8",
-    authDomain: "plan-maker-c14a9.firebaseapp.com",
-    databaseURL: "https://plan-maker-c14a9.firebaseio.com",
-    projectId: "plan-maker-c14a9",
-    storageBucket: "plan-maker-c14a9.appspot.com",
-    messagingSenderId: "931265126477",
-    appId: "1:931265126477:web:fb9c5b38bb4b03cf82fc04"
+    apiKey: "XXXXXXXXXXXXXXXXXX",
+    authDomain: "XXXXXXXXXXXXXXXXXX",
+    databaseURL: "XXXXXXXXXXXXXXXXXXXXXX",
+    projectId: "XXXXXXXXXXXXXX",
+    storageBucket: "XXXXXXXXXXXXX",
+    messagingSenderId: "XXXXXXXXXXXX",
+    appId: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
   };
   
   // Initialize Firebase
