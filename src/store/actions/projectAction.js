@@ -1,3 +1,4 @@
+
 const createProject = (recievedProject) =>{
     //this is how we normally created our action in a aobject form
     // return{
@@ -7,15 +8,18 @@ const createProject = (recievedProject) =>{
     //But in thunk we do 
     // In thunk we pause / take a halt for the Asyc task and then we call the dispatch function ....
     return(dispatch ,getState,{getFirestore})=>{
+        //variables for Name of user 
+        const profile = getState().firebase.profile;
+        const Userid = getState().firebase.auth.uid;
         //lets create a variable and store our function on that for ease
         const firestore = getFirestore() ;
         //we are adding data to our firebase database that we have created from create project
         firestore.collection('projects').add({
             //using .spreader     
             ...recievedProject,
-            authorFirstName : 'Ashish',
-            authorLastName : 'Maurya',
-            authorID        : 12345,
+            authorFirstName : profile.first_name,
+            authorLastName : profile.last_name,
+            authorID        : Userid,
             createdAt       : new Date()
         // after above async thing is  done then we dispatch this below function
         }).then(()=>{

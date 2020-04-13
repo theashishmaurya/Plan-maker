@@ -3,7 +3,7 @@ import ProjectSummary from './ProjectSummary';
 import {Link} from 'react-router-dom'
 
 const ProjectList=({Projects})=>{
-    console.log(Projects);
+   // console.log(Projects);
     return(
         <div className="projectlist section">
         {/*Lets type some JSX*/}

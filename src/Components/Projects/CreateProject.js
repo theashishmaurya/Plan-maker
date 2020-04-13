@@ -24,6 +24,7 @@ class CreatePost extends Component {
             content :''
             
         })
+        this.props.history.push('/')
         
 
     }
