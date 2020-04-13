@@ -8,7 +8,7 @@ import {compose} from 'redux' ;
 
 class Dashboard extends Component{
     render(){
-        const {DashProjects} = this.props  // destructuring of the Projects here. We have pass down all the property of our state to the props.
+        const {DashProjects,notification} = this.props  // destructuring of the Projects here. We have pass down all the property of our state to the props.
         //Read more about destructuring at : https://www.freecodecamp.org/news/the-basics-of-destructuring-props-in-react-a196696f5477/
         return(
             <div className="container dashboard">
@@ -19,7 +19,7 @@ class Dashboard extends Component{
                     </div>
                  
                     <div className=" col s12 m4 offset-m2">
-                    <Notification/>
+                    <Notification notification = {notification}/>
 
                     </div>
                 </div>
@@ -36,13 +36,14 @@ const mapStatetoProps=(state)=>{
     // thats how we can access it
     //console.log(state);
     return{
-    DashProjects : state.firestore.ordered.projects    // Here we are making a property(props) named Projects which we will be passing Project summary
-    
+    DashProjects : state.firestore.ordered.projects  ,  // Here we are making a property(props) named Projects which we will be passing Project summary
+    notification : state.firestore.ordered.notifications
     }
 }
 export default compose(
     connect(mapStatetoProps),
     firestoreConnect ([
-        {collection : 'projects'}
+        {collection : 'projects' , orderBy : ["createdAt","desc"]},
+        {collection : 'notifications' , limit: 5 , orderBy : ["time","desc"]}
     ]))
     (Dashboard);
