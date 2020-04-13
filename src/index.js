@@ -23,9 +23,24 @@ const store = createStore(RootReducer,
     reduxFirestore(firebase,fbconfig) // redux bindings for firestore
   )
 );
+
+//to add user profile in firebase auth
+const profileSpecificProps = {
+
+  userProfile: 'users',
+
+  useFirestoreForProfile: true,
+
+  enableRedirectHandling: false,
+
+  resetBeforeLogin: false
+
+}
+
 const rrfProps = {
   firebase,
   config: fbconfig,
+  config: profileSpecificProps,
   dispatch: store.dispatch,
   createFirestoreInstance
 };
@@ -34,7 +49,7 @@ const rrfProps = {
 
 
 
-
+//Below fuction is to wait for AuthUID to load then show the screen 
 function AuthIsLoaded({ children }) {
   const auth = useSelector(state => state.firebase.auth)
   if (!isLoaded(auth)) return <div>splash screen...</div>;

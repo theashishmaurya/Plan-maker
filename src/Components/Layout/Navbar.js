@@ -10,8 +10,8 @@ class Navbar extends Component{
        
     }
     render(){
-        const {auth} = this.props
-        const link = auth.uid ? <SingedInLinks/> :<SingedOutLinks/> // ternerary operator to decide if the user is logedin or log out
+        const {auth , profile} = this.props
+        const link = auth.uid ? <SingedInLinks profile = {profile}/> :<SingedOutLinks/> // ternerary operator to decide if the user is logedin or log out
     return(
         <nav className="nav-wrapper  grey darken-4">
           <div className="container">
@@ -29,7 +29,8 @@ class Navbar extends Component{
 const mapStatetoProps=(state)=>{
     console.log(state)
     return{
-        auth : state.firebase.auth
+        auth : state.firebase.auth,
+        profile : state.firebase.profile
 
     }
 }

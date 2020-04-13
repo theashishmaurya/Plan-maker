@@ -12,7 +12,7 @@ const SingedInLinks =(props)=>{
         
             <li><NavLink to="/Create">New Project</NavLink></li>
             <li><a onClick ={()=>{props.SingOut()}}>Sing Out</a></li>
-            <li><NavLink to='/' className="btn btn-floating black-text grey lighten-3">NN</NavLink></li>
+            <li><NavLink to='/' className="btn btn-floating black-text grey lighten-3">{props.profile.initial}</NavLink></li>
         </ul>
      
     )
